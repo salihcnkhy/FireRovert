@@ -13,7 +13,7 @@ public struct RVTFirestore<T: ResponseProtocol> {
     
     let db: Firestore
     
-    init() {
+    public init() {
         guard let app = FirebaseApp.app()
         else { fatalError("You have to configure firebase at appDelegate") }
         self.db = Firestore.firestore(app: app)
