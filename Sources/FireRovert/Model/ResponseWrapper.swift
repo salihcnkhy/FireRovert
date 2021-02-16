@@ -6,5 +6,5 @@
 //
 
 public struct ResponseWrapper {
-   public var data: ResponseProtocol
+   public var data: [ResponseProtocol]
 }
