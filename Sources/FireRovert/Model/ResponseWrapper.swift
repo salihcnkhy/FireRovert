@@ -6,5 +6,14 @@
 //
 
 public struct ResponseWrapper {
-   public var data: [ResponseProtocol]
+    public var data: [ResponseProtocol]
+    public var isSuccess: Bool
+    public init(data: [ResponseProtocol]) {
+        self.data = data
+        if let first = data.first, let _ = first as? ErrorResponse {
+            isSuccess = false
+        } else {
+            isSuccess = true
+        }
+    }
 }
