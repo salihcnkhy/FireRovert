@@ -8,7 +8,7 @@
 import Foundation
 
 extension RVTFirestore {
-    public func add(in collection: String, which documentID: String, with data: Encodable, merge: Bool = true, completion: ((Error?) -> Void)? = nil) {
+    public func add(in collection: String, which documentID: String, with data: T, merge: Bool = true, completion: ((Error?) -> Void)? = nil) {
         if let dictionary = data.dictionary {
             db.collection(collection).document(documentID).setData(dictionary, merge: true, completion: completion)
         } else {
@@ -16,7 +16,7 @@ extension RVTFirestore {
         }
     }
     
-    public func add(in collection: String, with data: Encodable, completion: ((Error?) -> Void)? = nil) {
+    public func add(in collection: String, with data: T, completion: ((Error?) -> Void)? = nil) {
         if let dictionary = data.dictionary {
             db.collection(collection).addDocument(data: dictionary, completion: completion)
         } else {
